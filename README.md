@@ -103,3 +103,7 @@ The markup is semantic and each page is one `<main>`; the design lives entirely 
 ## Accessibility (WCAG 2.2 AA)
 
 Skip link, landmarks, one h1 per page, visible focus rings, 44 px minimum targets on interactive controls, `prefers-reduced-motion` respected, `aria-current` in menus and tabs, table captions and `scope`, live regions for search results, `role="img"` labels on chart bars. Text contrast was measured for every rendered text node on all 40 pages at 1440 px and 390 px: no text below 4.5:1 (3:1 for large text). Lowest measured ratio on the start page: 5.0:1.
+
+## Update: Mondioring-Layout
+
+Die Seite `sport-mondioring.html` verwendet jetzt ein ausgerichtetes Raster statt schwebender Bilder: Text links, Foto rechts, jede Übung als eigene Zeile. Übungen ohne Foto stehen zweispaltig, die Bildergalerie am Ende ist ein gleichmäßiges 3-Spalten-Raster. Alle Galerien der Seite (Gremien, Sport) nutzen jetzt gleich große Kacheln. Der deutsche Text ist unverändert.
