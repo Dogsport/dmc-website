@@ -116,6 +116,40 @@
   }
   on(window, 'hashchange', openHash); openHash();
 
+  /* ---------- Veranstaltungen: Meldestatus + Filter nach Art ---------- */
+  function fmtD(iso) { return iso.slice(8) + '.' + iso.slice(5, 7) + '.' + iso.slice(0, 4); }
+  function statusInit() {
+    var today;
+    try { today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Berlin' }); } catch (e) { return; }
+    $$('.status[data-close]').forEach(function (el) {
+      var o = el.getAttribute('data-open'), c = el.getAttribute('data-close'), en = el.getAttribute('data-end'), t = $('.status__t', el), st, txt;
+      if (today > en) { st = 'done'; txt = 'Beendet'; }
+      else if (today > c) { st = 'closed'; txt = 'Meldeschluss abgelaufen'; }
+      else if (today < o) { st = 'soon'; txt = 'Meldung ab ' + fmtD(o); }
+      else {
+        st = 'open';
+        var days = Math.round((Date.parse(c) - Date.parse(today)) / 86400000);
+        txt = 'Meldung offen · bis ' + fmtD(c) + (days <= 7 ? (days === 0 ? ' (heute)' : ' (noch ' + days + (days === 1 ? ' Tag)' : ' Tage)')) : '');
+      }
+      el.setAttribute('data-state', st); if (t) t.textContent = txt;
+      var li = el.closest('.ev'); if (li && st === 'done') li.classList.add('is-done');
+    });
+  }
+  statusInit();
+  var calEl = $('#cal');
+  if (calEl) {
+    var chips = $$('.chip', calEl), items = $$('.ev', calEl), months = $$('[data-month]', calEl), cnt = $('#cal-n');
+    chips.forEach(function (ch) {
+      ch.addEventListener('click', function () {
+        var cat = ch.getAttribute('data-cat'), n = 0;
+        chips.forEach(function (x) { x.setAttribute('aria-pressed', x === ch ? 'true' : 'false'); });
+        items.forEach(function (li) { var on = cat === 'all' || li.getAttribute('data-cat') === cat; li.hidden = !on; if (on) n++; });
+        months.forEach(function (m) { m.hidden = !$$('.ev', m).some(function (li) { return !li.hidden; }); });
+        if (cnt) cnt.textContent = n + (n === 1 ? ' Termin' : ' Termine');
+      });
+    });
+  }
+
   /* ---------- Landesgruppen: "Mein Bundesland" ---------- */
   var sel = $('#lg-select');
   if (sel) {
