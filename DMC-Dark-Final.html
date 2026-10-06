@@ -6,6 +6,7 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 
+
 /* V4.2 FACEBOOK MEDIA FIX
    Important: V4.1 local JPG files were already cropped screenshots. V4.2 HTML now uses
    the original Facebook image URLs from the supplied live DMC HTML. These rules ensure
@@ -45,6 +46,9 @@
 @media (max-width:640px) {
   .feed-media {padding:0 !important;}
   .feed-media img {width:100% !important;max-width:100% !important;height:auto !important;}
+}
+@media (max-width:767px) {
+  .fb-slider-head  a{margin-top:20px !important;}
 }
 
 /* V4.3 FACEBOOK ROW ALIGNMENT FIX
