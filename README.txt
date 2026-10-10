@@ -1,20 +1,10 @@
-DMC Homepage Final V7
+DMC Homepage Final V8.4
 
-Enthalten:
-- index.html – kurze deutsche Auswahlseite
-- light/index.html + light/styles.css
-- dark/index.html + dark/styles.css
-- DMC-Light-Final.html – komplett eigenständige Einzeldatei
-- DMC-Dark-Final.html – komplett eigenständige Einzeldatei
-
-Umgesetztes Florian-Feedback:
-- Mobile-first Anpassungen
-- Header vereinfacht: kein doppeltes DMC, keine Suche, 5 Hauptbereiche
-- Im Banner kein zusätzliches DMC-Logo / keine wiederholte Vereinsbezeichnung
-- kein abweichend gestalteter Hero-CTA
-- Schnelleinstiege als einheitliches Navigationsmuster
-- DMC-Markenfarbe #983427
-- Facebook nur als kompakte Vorschau/Slider
-- Facebook-Karten Desktop 390 px, Tablet 350 px, Mobile ca. 82 vw
-- gleiche Medienhöhe in den Facebook-Karten, Bilder vollständig via object-fit: contain
-- untere Inhaltsbereiche bleiben auf Basis V5.3
+- Grundlage ist V8.3.
+- Nur die Facebook-Medien-Darstellung wurde angepasst: object-fit: cover statt contain.
+- Die 3:4-Medienbox bleibt bestehen; Bilder füllen die komplette Fläche von oben bis unten.
+- object-position bleibt zentriert, damit das Hauptmotiv möglichst im sichtbaren Ausschnitt bleibt.
+- 6 Facebook-Slides bleiben erhalten.
+- Gefällt mir / Kommentieren / Teilen bleibt auf jeder Karte sichtbar.
+- Gefällt mir funktioniert lokal als UI-Demo; Kommentieren/Teilen öffnet Facebook.
+- Header, Hero, Quicklinks und sämtliche Bereiche unterhalb des Facebook-Sliders wurden gegenüber V8.3 nicht verändert.
